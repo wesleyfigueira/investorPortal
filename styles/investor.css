@@ -1,0 +1,136 @@
+:root {
+  --primary: #0074d9;
+  --secondary: #005fa3;
+  --accent: #00b5d8;
+  --background: #f9fbfc;
+  --text-dark: #1e293b;
+  --text-light: #ffffff;
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", Arial, sans-serif;
+}
+
+/* Body Layout */
+body {
+  background: linear-gradient(120deg, var(--background), var(--accent));
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+header {
+  background-color: var(--primary);
+  color: var(--text-light);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  box-shadow: var(--shadow);
+}
+
+header h1 span {
+  color: var(--accent);
+}
+
+nav button {
+  background: var(--text-light);
+  color: var(--primary);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+nav button:hover {
+  background: var(--accent);
+  color: var(--text-light);
+}
+
+/* Main content */
+.container {
+  padding: 30px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 25px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Info Cards */
+.info-card {
+  background: var(--text-light);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  padding: 25px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.info-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.info-card h2 {
+  color: var(--primary);
+  margin-bottom: 15px;
+  font-size: 24px;
+}
+
+.info-card p {
+  color: var(--text-dark);
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+/* Banner image */
+.banner {
+  width: 100%;
+  border-radius: 10px;
+  margin-top: 15px;
+}
+
+/* Gallery */
+.gallery .images {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.gallery .images img {
+  width: calc(33% - 10px);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.gallery .images img:hover {
+  transform: scale(1.05);
+}
+
+/* Files list */
+.files ul {
+  list-style: none;
+}
+
+.files li {
+  margin-bottom: 10px;
+}
+
+.files a {
+  color: var(--secondary);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.files a:hover {
+  color: var(--accent);
+}
