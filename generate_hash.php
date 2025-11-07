@@ -2,7 +2,7 @@
 
 
 
-echo password_hash("987654", PASSWORD_DEFAULT);
+echo password_hash("@Naw87747202", PASSWORD_DEFAULT);
 ?>
 
 

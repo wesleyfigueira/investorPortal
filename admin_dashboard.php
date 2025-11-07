@@ -1,9 +1,9 @@
 <?php 
 session_start();
 
-// Redirect if not logged in
+// Redireciona se não estiver logado
 if (!isset($_SESSION['name'])) {
-    header("Location: login.php");
+    header("Location: back/login.php");
     exit();
 }
 
@@ -15,6 +15,7 @@ function showError($error) {
     return !empty($error) ? "<div class='error-message'>{$error}</div>" : '';
 }
 
+// Limpa erro após exibir
 unset($_SESSION['register_error']);
 ?>
 
@@ -27,24 +28,23 @@ unset($_SESSION['register_error']);
     <link rel="stylesheet" href="styles/admin_dashboard.css">
 </head>
 <body>
-        <?php
-        if (isset($_SESSION['register_success'])) {
-            echo '<div class="success-message">' . $_SESSION['register_success'] . '</div>';
-            unset($_SESSION['register_success']);
-        }
+    <?php
+    if (isset($_SESSION['register_success'])) {
+        echo '<div class="success-message">' . htmlspecialchars($_SESSION['register_success']) . '</div>';
+        unset($_SESSION['register_success']);
+    }
 
-        if (isset($_SESSION['register_error'])) {
-            echo '<div class="error-message">' . $_SESSION['register_error'] . '</div>';
-            unset($_SESSION['register_error']);
-        }
-        ?>
-
+    if (isset($_SESSION['register_error'])) {
+        echo '<div class="error-message">' . htmlspecialchars($_SESSION['register_error']) . '</div>';
+        unset($_SESSION['register_error']);
+    }
+    ?>
 
     <!-- HEADER -->
     <header>
         <h1>Welcome, <span><?= htmlspecialchars($_SESSION['name']); ?></span></h1>
         <nav>
-            <button onclick="window.location.href='logout.php'">Logout</button>
+            <button onclick="window.location.href='back/logout.php'">Logout</button>
         </nav>
     </header>
 
@@ -59,7 +59,7 @@ unset($_SESSION['register_error']);
         <section id="user-registration">
             <h2>Register New User</h2>
             <?= showError($errors['register']); ?>
-            <form action="Login_register.php" method="post" class="register-form">
+            <form action="back/login_register.php" method="post" class="register-form">
                 <input type="text" name="name" placeholder="Full Name" required>
                 <input type="email" name="email" placeholder="Email Address" required>
                 <input type="password" name="password" placeholder="Password" required>
@@ -78,10 +78,9 @@ unset($_SESSION['register_error']);
             <p>This section will display important information, news, or updates for administrators.</p>
         </section>
 
+        <!-- Quick Access Links -->
         <section id="anchors">
             <h2>Quick Access Links</h2>
-            <p>Use these shortcuts to access important admin tools and sections.</p>
-
             <div class="anchors-grid">
                 <a href="manage_users.php" class="anchor-box">
                     <h3>Manage Users</h3>
@@ -99,7 +98,6 @@ unset($_SESSION['register_error']);
                 </a>
             </div>
         </section>
-
 
         <!-- Settings Section -->
         <section id="settings">

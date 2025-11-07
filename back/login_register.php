@@ -26,7 +26,7 @@ if(isset($_POST['register'])){
         $_SESSION['register_success'] = "User <strong>$name</strong> was registered successfully!";
 
     }
-        header("Location: admin_dashboard.php");  
+        header("Location: ../admin_dashboard.php");  
         exit();
 
 }
@@ -47,16 +47,16 @@ if(isset($_POST['login'])){
             $_SESSION['email'] =$user['email']; 
 
             if($user['role'] =='admin'){
-                header("Location: admin_dashboard.php");   }
+                header("Location: ../admin_dashboard.php");   }
             else{
-                header("Location: user_page.php");   
+                header("Location: ../user_page.php");   
              } 
                 exit();
         }
     }
     $_SESSION['login_error'] ="Invalid email or password.";
     $_SESSION['active_form'] ="login";
-    header("Location: login.php");  
+    header("Location: ../login.php");  
     exit();
 }
 ?>

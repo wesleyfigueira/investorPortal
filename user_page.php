@@ -18,7 +18,7 @@ if(!isset($_SESSION['email'])){
     <header>
         <h1>Welcome, <span><?php echo htmlspecialchars($_SESSION['name']); ?></span></h1>
         <nav>
-            <button onclick="window.location.href='logout.php'">Logout</button>
+            <button onclick="window.location.href='back/logout.php'">Logout</button>
         </nav>
     </header>
 
