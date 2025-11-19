@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>AbleVu — Customers & Revenue Dashboard</title>
+    <link rel="stylesheet" href="../styles/customer.css" />
+</head>
+<body>
+  <header class="appbar">
+    <div class="logo">
+      <div class="mark">AV</div>
+      <div>
+        <h1>Able<span>Vu</span> Dashboard</h1>
+        <div class="subtitle">Customers • Revenue • Growth Pipeline</div>
+      </div>
+    </div>
+    <div style="margin-left:auto;display:flex;gap:8px;align-items:center">
+      <a href="../index.html" id="backBtn">← Back to Home</a>
+     <!-- <button class="btn" onclick="downloadHTML()">Download HTML</button> -->
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="panel" aria-labelledby="customers">
+      <h2 id="customers">📂 Customers & Revenue</h2>
+      <p class="lead">Quick interactive view of current customers, segmentation, and revenue assumptions.</p>
+
+      <div class="grid-tiles" role="list">
+        <div class="tile" role="listitem">
+          <div class="label">Total Locations</div>
+          <div class="num" id="totalLocations">369</div>
+        </div>
+        <div class="tile" role="listitem">
+          <div class="label">Paying Locations</div>
+          <div class="num" id="payingLocations">25</div>
+          <div class="label" style="margin-top:6px">@ $299 ARR</div>
+        </div>
+        <div class="tile" role="listitem">
+          <div class="label">Freemium Locations</div>
+          <div class="num" id="freemiumLocations">254</div>
+        </div>
+
+        <div class="tile">
+          <div class="label">Paying Cities</div>
+          <div class="num" id="payingCities">3</div>
+          <div class="label">(90 locations)</div>
+        </div>
+        <div class="tile">
+          <div class="label">Freemium Cities</div>
+          <div class="num" id="freemiumCities">8</div>
+        </div>
+        <div class="tile">
+          <div class="label">Retention Assumption</div>
+          <div class="num" id="retentionPct">90%</div>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>💵 Revenue Performance</h2>
+        <div class="kpi-big">
+          <div class="kpi">
+            <div class="label">ARR per Location</div>
+            <div class="v">$<span id="arrPerLocation">299</span></div>
+          </div>
+          <div class="kpi">
+            <div class="label">ARR per City (min)</div>
+            <div class="v">$<span id="arrPerCity">4,485</span>+</div>
+          </div>
+          <div class="kpi">
+            <div class="label">Total Revenue (Year 1)</div>
+            <div class="v">$<span id="totalRevenue">28000</span></div>
+          </div>
+        </div>
+
+        <div style="margin-top:12px;display:flex;gap:16px;align-items:center;flex-wrap:wrap">
+          <div class="controls">
+            <label for="retention">Retention</label>
+            <input id="retention" type="range" min="60" max="100" value="90" step="1" oninput="updateRetention(this.value)">
+            <span id="retLabel" style="width:36px;text-align:right">90%</span>
+          </div>
+
+          <div class="controls">
+            <label for="payingLocInput">Paying Locations</label>
+            <input id="payingLocInput" type="number" min="0" value="25" style="width:80px" oninput="updatePayingLocs(this.value)">
+          </div>
+
+          <div class="controls">
+            <label for="arrInput">ARR / Location</label>
+            <input id="arrInput" type="number" min="0" value="299" style="width:100px" oninput="updateARR(this.value)">
+          </div>
+
+          <button class="btn" onclick="applyQuickScenario(100)">Sim: +100 Paying Locs</button>
+          <button class="btn ghost" onclick="resetDefaults()">Reset</button>
+        </div>
+
+        <p class="lead" style="margin-top:12px">Revenue projection uses Paying Locations × ARR per location × Retention.</p>
+
+        <table aria-label="Revenue details">
+          <thead>
+            <tr><th>Metric</th><th>Value</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Paying Locations</td><td id="tblPaying">25</td></tr>
+            <tr><td>ARR / Location</td><td>$<span id="tblARR">299</span></td></tr>
+            <tr><td>Retention</td><td><span id="tblRetention">90%</span></td></tr>
+            <tr><td><strong>Projected ARR (next year)</strong></td><td>$<strong id="tblProjected">672750</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="section">
+        <h2>🧩 Customer Segments & Notable Accounts</h2>
+        <p class="lead">Core segments and highlighted partners.</p>
+        <div class="customers">
+          <div class="customer">Local businesses (B2B direct)</div>
+          <div class="customer">Cities / DMOs</div>
+          <div class="customer">Influencer partnerships</div>
+          <div class="customer">Franchises & enterprise groups</div>
+          <div class="customer">Disability advocacy partners</div>
+        </div>
+
+        <div style="margin-top:12px;display:flex;flex-wrap:wrap;gap:10px">
+          <div class="small-card" style="flex:1">
+            <strong>Notable Customers & Partners</strong>
+            <ul style="margin:8px 0 0 18px">
+              <li>Choose Lansing</li>
+              <li>Visit Tampa Bay</li>
+              <li>Visit Mesa</li>
+              <li>Discover Lancaster</li>
+              <li>Detroit Zoo</li>
+              <li>Michigan State University</li>
+              <li>Meijer</li>
+              <li>Consumers Credit Union</li>
+            </ul>
+          </div>
+
+          <div class="small-card">
+            <strong>Partnerships</strong>
+            <p style="margin:6px 0 0 0;color:var(--muted)">Curb Free with Cory Lee · Pure Michigan pipeline (150+ locations)</p>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div>Model notes: 100% ARR; renewal assumed at retention slider. Year 1 revenue is validated pricing & need.</div>
+      </footer>
+    </section>
+
+    <aside class="right">
+      <div class="card-list">
+        <div class="panel small-card">
+          <h3 style="margin:0 0 8px 0">📈 Growth Pipeline</h3>
+          <ul class="pipeline">
+            <li>Atlanta — active discussions</li>
+            <li>Springfield — active discussions</li>
+            <li>Myrtle Beach — active discussions</li>
+            <li>State-level: New York — exploratory</li>
+            <li>Pure Michigan Partnership — 150+ locations (subsidized year 1)</li>
+          </ul>
+        </div>
+
+        <div class="panel small-card">
+          <h3 style="margin:0 0 8px 0">AI & Product Roadmap</h3>
+          <p style="margin:0;color:var(--muted)">AbleBot™ (white-labeled accessible chatbot), data licensing, contributor program, and AI assistant (2025–2026).</p>
+        </div>
+
+        <div class="panel small-card">
+          <h3 style="margin:0 0 8px 0">Quick Metrics</h3>
+          <div class="kpi" style="margin-bottom:8px">
+            <div class="label">Total Locations</div>
+            <div class="v" id="sideTotal">369</div>
+          </div>
+          <div class="kpi">
+            <div class="label">Paying Cities</div>
+            <div class="v" id="sideCities">3</div>
+          </div>
+        </div>
+      </div>
+    </aside>
+  </main>
+    <script src="../script/customer.js"></script>
+</body>
+</html>
