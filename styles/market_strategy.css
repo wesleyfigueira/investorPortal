@@ -1,143 +1,189 @@
+/* =========================================================
+   Global Theme – Consolidated with Main Site
+========================================================= */
 :root{
   --primary: #0074d9;
   --secondary: #005fa3;
+  --accent: #00b5d8;
   --background: #f9fbfc;
+  --surface: #ffffff;
+  --surface-soft: #eef4f8;
   --text-dark: #1e293b;
+  --text-muted: #52637a;
   --text-light: #ffffff;
+  --shadow: 0 4px 12px rgba(0,0,0,0.08);
+  --radius: 12px;
 }
 
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      background: var(--background);
-      color: #1a1a1a;
-    }
-
-    header.gtm-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background: var(--primary);
-      color: white;
-      padding: 16px 24px;
-     
-    }
-
-    .gtm-header h1 {
-      font-size: 20px;
-      margin: 0;
-      font-weight: 600;
-    }
-
-    .gtm-header a {
-      text-decoration: none;
-      color: #fff;
-      font-size: 13px;
-      padding: 6px 12px;
-      border-radius: 6px;
-      background: rgba(255,255,255,0.15);
-      transition: 0.25s;
-    }
-
-    .gtm-header a:hover {
-      background: rgba(255,255,255,0.28);
-    }
-
-    .container {
-      width: 92%;
-      max-width: 1150px;
-      margin: auto;
-      padding-bottom: 40px;
-    }
-
-    h2 {
-      margin-top: 32px;
-      font-size: 22px;
-      font-weight: 600;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      background: white;
-      border-radius: 10px;
-      overflow: hidden;
-      margin-top: 16px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-    }
-
-    th, td {
-      padding: 12px;
-      border-bottom: 1px solid #eee;
-      text-align: center;
-      font-size: 14px;
-    }
-
-    th {
-      background: var(--brand-dark);
-      color: white;
-      font-size: 13px;
-    }
-
-    tbody tr:hover {
-      background: #eef3ff;
-      cursor: pointer;
-    }
-
-    /* Card block styles */
-    .note-block {
-      background: white;
-      padding: 18px;
-      margin-top: 20px;
-      border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-      line-height: 1.6;
-    }
-
-    .note-block h3 {
-      margin: 0 0 8px 0;
-      font-size: 18px;
-      color: var(--brand-dark);
-    }
-
-    .note-block ul {
-      margin: 0;
-      padding-left: 20px;
-    }
-
-    /* Flash animation for row interaction */
-    .highlight {
-      animation: flash 1.3s ease;
-    }
-
-footer{
-  text-align:center;
-  padding:24px 12px;
-  margin-top:36px;
-  background:var(--primary);
-  color:var(--background);
-  font-size:14px;
-}
-footer a{
-  color:var(--background);
-  text-decoration:none;
+/* =========================================================
+   Reset
+========================================================= */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", sans-serif;
 }
 
-    @keyframes flash {
-      0%   { background: #fff6b3; }
-      100% { background: white; }
-    }
+/* =========================================================
+   Page Layout
+========================================================= */
+body {
+  background: var(--background);
+  color: var(--text-dark);
+  -webkit-font-smoothing: antialiased;
+  font-size: 15px;
+}
 
-    /* Responsive table */
-    @media(max-width:780px){
-      table {
-        display: block;
-        overflow-x: auto;
-        white-space: nowrap;
-      }
+/* =========================================================
+   Header – Unifies with site
+========================================================= */
+header.gtm-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--primary);
+  color: var(--text-light);
+  padding: 16px 24px;
+  box-shadow: var(--shadow);
+}
 
-      .gtm-header {
-        flex-direction: column;
-        gap: 10px;
-      }
-    }
+.gtm-header h1 {
+  font-size: 20px;
+  margin: 0;
+  font-weight: 700;
+}
+
+.gtm-header a {
+  text-decoration: none;
+  color: var(--text-light);
+  font-size: 13px;
+  padding: 8px 14px;
+  border-radius: var(--radius);
+  background: rgba(255,255,255,0.15);
+  transition: 0.25s;
+  font-weight: 600;
+  box-shadow: var(--shadow);
+}
+
+.gtm-header a:hover {
+  background: var(--accent);
+  color: var(--text-light);
+}
+
+/* =========================================================
+   Container
+========================================================= */
+.container {
+  width: 92%;
+  max-width: 1150px;
+  margin: 0 auto;
+  padding-bottom: 40px;
+}
+
+/* =========================================================
+   Section Titles
+========================================================= */
+h2 {
+  margin-top: 32px;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+/* =========================================================
+   Data Table
+========================================================= */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--surface);
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-top: 16px;
+  box-shadow: var(--shadow);
+}
+
+th, td {
+  padding: 12px;
+  border-bottom: 1px solid #eee;
+  text-align: center;
+  font-size: 14px;
+}
+
+th {
+  background: var(--secondary);
+  color: var(--text-light);
+  font-weight: 600;
+}
+
+tbody tr:hover {
+  background: var(--surface-soft);
+  cursor: pointer;
+}
+
+/* =========================================================
+   Card Blocks (Notes)
+========================================================= */
+.note-block {
+  background: var(--surface);
+  padding: 18px;
+  margin-top: 20px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  line-height: 1.6;
+}
+
+.note-block h3 {
+  margin: 0 0 8px 0;
+  font-size: 18px;
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.note-block ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+/* =========================================================
+   Flash Animation for Table Row Selection
+========================================================= */
+.highlight {
+  animation: flash 1.3s ease;
+}
+
+@keyframes flash {
+  0%   { background: #fff6b3; }
+  100% { background: var(--surface); }
+}
+
+/* =========================================================
+   Footer
+========================================================= */
+footer {
+  text-align: center;
+  padding: 24px 12px;
+  margin-top: 36px;
+  background: var(--secondary);
+  color: var(--text-light);
+  font-size: 14px;
+}
+
+/* =========================================================
+   Responsive Layout
+========================================================= */
+@media(max-width: 780px) {
+
+  .gtm-header {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+
+  table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+}

@@ -1,32 +1,51 @@
-  
-  
-  :root {
+/* =========================================================
+   Global Theme
+========================================================= */
+:root {
   --primary: #0074d9;
   --secondary: #005fa3;
   --accent: #00b5d8;
   --background: #f9fbfc;
+  --surface: #ffffff;
+  --surface-soft: #f0f6ff;
   --text-dark: #1e293b;
   --text-light: #ffffff;
+  --text-muted: #6b7485;
+  --shadow: 0 4px 12px rgba(0,0,0,0.08);
+  --radius: 12px;
 }
-  
-  
-  
-  body {
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    background: var(--background);
-    color: #222;
-    line-height: 1.6;
-  }
 
+/* =========================================================
+   Global Reset
+========================================================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+}
+
+/* =========================================================
+   Page Layout
+========================================================= */
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--text-dark);
+  line-height: 1.6;
+}
+
+/* =========================================================
+   Header (Unifies with Main Style)
+========================================================= */
 header.page-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   background: var(--primary);
-  color: #fff;
-  padding: 16px 24px;
-  margin-bottom: 24px;
+  color: var(--text-light);
+  padding: 18px 26px;
+  box-shadow: var(--shadow);
 }
 
 .page-header .title-block {
@@ -38,7 +57,7 @@ header.page-header {
 .page-header h1 {
   margin: 0;
   font-size: 20px;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .page-header p {
@@ -47,79 +66,121 @@ header.page-header {
   color: rgba(255,255,255,0.75);
 }
 
+/* Back Button */
 #backBtn {
   text-decoration: none;
-  color: #fff;
+  color: var(--text-light);
   font-size: 13px;
-  padding: 6px 12px;
-  border-radius: 6px;
-  background: rgba(255,255,255,0.12);
-  transition: 0.25s;
+  padding: 8px 14px;
+  border-radius: var(--radius);
+  background: rgba(255,255,255,0.15);
+  transition: 0.25s ease;
+  font-weight: 600;
+  box-shadow: var(--shadow);
 }
 
 #backBtn:hover {
-  background: rgba(255,255,255,0.22);
-}
-
-#backBtn {
-  color: white;
+  background: var(--accent);
   text-decoration: none;
-  font-weight: bold;
 }
-#backBtn:hover {
-  text-decoration: underline;   }
 
-  .container {
-    max-width: 1150px;
-    margin: auto;
-    padding: 30px;
+/* =========================================================
+   Container
+========================================================= */
+.container {
+  max-width: 1150px;
+  margin: auto;
+  padding: 40px 22px;
+}
+
+/* Section Titles */
+h2 {
+  margin-top: 36px;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+/* Optional color classes */
+.blue { color: var(--primary); }
+.green { color: #1c9c53; }
+.purple { color: #7c3aed; }
+
+/* =========================================================
+   Table Styling (Modern)
+========================================================= */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 18px 0;
+  background: var(--surface);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+table th,
+table td {
+  padding: 12px;
+  border-bottom: 1px solid #eee;
+  text-align: center;
+  font-size: 14px;
+}
+
+table th {
+  background: var(--secondary);
+  color: var(--text-light);
+  font-weight: 600;
+}
+
+tbody tr:hover {
+  background: var(--surface-soft);
+}
+
+/* =========================================================
+   Card Sections
+========================================================= */
+.section-box,
+.legend-box {
+  background: var(--surface);
+  padding: 20px;
+  margin: 25px 0;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  border: none;
+}
+
+/* =========================================================
+   Footer
+========================================================= */
+footer {
+  text-align: center;
+  padding: 30px;
+  margin-top: 50px;
+  background: var(--secondary);
+  color: var(--text-light);
+  font-size: 14px;
+}
+
+/* =========================================================
+   Responsive Adjustments
+========================================================= */
+@media (max-width: 768px) {
+
+  header.page-header {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
   }
 
-  h2 {
-    margin-top: 40px;
+  #backBtn {
+    width: 100%;
+    text-align: center;
   }
-
-  /* Color codes */
-  .blue { color: #0072ff; }
-  .green { color: #1c9c53; }
-  .purple { color: #7c3aed; }
 
   table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 15px 0;
-    background: white;
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
   }
-
-  table th, table td {
-    border: 1px solid #ddd;
-    padding: 12px;
-  }
-
-  table th {
-    background: #e9eef8;
-  }
-
-  .section-box {
-    background: white;
-    padding: 20px;
-    margin: 25px 0;
-    border-radius: 10px;
-    border: 1px solid #ddd;
-  }
-
-  .legend-box {
-    background: white;
-    padding: 15px 20px;
-    border-radius: 8px;
-    border: 1px solid #ddd;
-    margin: 20px 0;
-  }
-
-  footer {
-    text-align: center;
-    padding: 30px;
-    margin-top: 50px;
-    background: var(--primary);
-    color: white;
-  }
+}

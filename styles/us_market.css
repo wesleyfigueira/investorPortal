@@ -1,0 +1,286 @@
+/* =========================================================
+   Global Theme
+========================================================= */
+:root{
+  --primary: #0074d9;
+  --secondary: #005fa3;
+  --accent: #00b5d8;
+  --background: #f9fbfc;
+  --surface: #ffffff;
+  --surface-soft: #f3f7fd;
+  --text-dark: #1e293b;
+  --text-light: #ffffff;
+  --shadow: 0 4px 12px rgba(0,0,0,0.08);
+  --radius: 12px;
+}
+
+/* =========================================================
+   Reset
+========================================================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+/* =========================================================
+   Page Base Styling
+========================================================= */
+body {
+  background: var(--background);
+  color: var(--text-dark);
+  padding-bottom: 40px;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* =========================================================
+   Header (Unified Style)
+========================================================= */
+header.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 40px;
+  background: var(--primary);
+  color: var(--text-light);
+  box-shadow: var(--shadow);
+  flex-wrap: wrap;
+}
+
+header.header h1 {
+  font-size: 1.8rem;
+  margin-bottom: 8px;
+  width: 100%;
+  text-align: center;
+  font-weight: 700;
+}
+
+header.header p {
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.8);
+  margin-bottom: 20px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Header Links */
+header.header a {
+  text-decoration: none;
+  color: var(--text-light);
+  font-size: 13px;
+  padding: 8px 14px;
+  border-radius: var(--radius);
+  background: rgba(255,255,255,0.18);
+  transition: 0.3s ease;
+  font-weight: 600;
+  box-shadow: var(--shadow);
+}
+
+header.header a:hover {
+  background: var(--accent);
+  color: var(--text-light);
+}
+
+/* Distinct buttons */
+header.header a#backBtn,
+header.header a[href*="login"] {
+  background: var(--surface-soft);
+  color: var(--primary);
+  border: 1px solid #c9daf9;
+}
+
+header.header a#backBtn:hover,
+header.header a[href*="login"]:hover {
+  background: var(--accent);
+  color: var(--text-light);
+}
+
+/* =========================================================
+   Stats Cards
+========================================================= */
+.stats-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin: 40px auto;
+  max-width: 1000px;
+}
+
+.stat-card {
+  background: var(--surface);
+  padding: 25px;
+  border-radius: var(--radius);
+  width: 260px;
+  text-align: center;
+  box-shadow: var(--shadow);
+  transition: 0.3s;
+}
+
+.stat-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.stat-card h3 {
+  font-size: 2rem;
+  margin-bottom: 6px;
+  color: var(--primary);
+}
+
+/* =========================================================
+   Chart Section
+========================================================= */
+.chart-section {
+  text-align: center;
+  margin: 50px auto;
+  width: 90%;
+  max-width: 900px;
+}
+
+.chart-section canvas {
+  max-width: 450px !important;
+  margin: 0 auto;
+  display: block;
+}
+
+/* =========================================================
+   Table Section
+========================================================= */
+.table-section {
+  width: 90%;
+  max-width: 1100px;
+  margin: 40px auto 0;
+  background: var(--surface);
+  padding: 30px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.table-section h2 {
+  margin-bottom: 20px;
+  color: var(--primary);
+}
+
+/* Table style */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+}
+
+table th,
+table td {
+  text-align: left;
+  padding: 12px;
+  border-bottom: 1px solid #eee;
+}
+
+table tr:nth-child(even) {
+  background: var(--surface-soft);
+}
+
+table tr.total {
+  background: var(--primary);
+  color: var(--text-light);
+  font-weight: bold;
+}
+
+/* =========================================================
+   Footer
+========================================================= */
+footer {
+  text-align: center;
+  padding: 2rem;
+  background: var(--secondary);
+  color: var(--text-light);
+  font-size: 0.9rem;
+}
+
+/* =========================================================
+   Responsive Design
+========================================================= */
+
+/* Tablets (≤ 1024px) */
+@media (max-width: 1024px) {
+
+  header.header {
+    padding: 20px;
+  }
+
+  .stats-container {
+    gap: 15px;
+    max-width: 90%;
+  }
+
+  .stat-card {
+    width: 45%;
+  }
+
+  .chart-section canvas {
+    max-width: 380px !important;
+  }
+}
+
+/* Mobile Large (≤ 768px) */
+@media (max-width: 768px) {
+
+  header.header {
+    text-align: center;
+    padding: 20px;
+  }
+
+  header.header h1 {
+    font-size: 1.5rem;
+  }
+
+  header.header a {
+    margin: 6px;
+    display: inline-block;
+  }
+
+  .stat-card {
+    width: 100%;
+  }
+
+  .chart-section canvas {
+    max-width: 320px !important;
+  }
+}
+
+/* Phones (≤ 480px) */
+@media (max-width: 480px) {
+
+  header.header h1 {
+    font-size: 1.3rem;
+  }
+
+  .table-section {
+    padding: 20px;
+    overflow-x: auto;
+  }
+
+  table {
+    min-width: 500px;
+  }
+
+  .chart-section canvas {
+    max-width: 260px !important;
+  }
+}
+
+/* Tiny screens (≤ 360px) */
+@media (max-width: 360px) {
+  header.header {
+    padding: 15px;
+  }
+
+  .stat-card h3 {
+    font-size: 1.6rem;
+  }
+
+  .chart-section canvas {
+    max-width: 220px !important;
+  }
+}

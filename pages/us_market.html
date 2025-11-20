@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AbleVu – AV Market Size Dashboard</title>
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="../styles/us_market.css">
+</head>
+
+<body>
+
+<header class="header">
+  <h1>AV Market Size – United States</h1>
+  <p>Market size and total addressable public-facing locations</p>
+  <a href="../index.html" id="backBtn">← Back to Home</a>
+  <a href="../login.php">Login</a>
+</header>
+
+<section class="stats-container">
+
+  <div class="stat-card">
+    <h3>$4.2B</h3>
+    <p>All Public-Facing Businesses</p>
+  </div>
+
+  <div class="stat-card">
+    <h3>$636M</h3>
+    <p>Hospitality + Retail</p>
+  </div>
+
+  <div class="stat-card">
+    <h3>$294M</h3>
+    <p>Hospitality Only</p>
+  </div>
+
+</section>
+
+<section class="chart-section">
+  <h2>Market Composition</h2>
+  <canvas id="marketChart"></canvas>
+</section>
+
+<section class="table-section">
+  <h2>US Market Breakdown by Segment</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Segment</th>
+        <th>Approx. Count</th>
+        <th>Source</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr><td>K–12 Schools</td><td>389,000</td><td>NCES, 2022</td></tr>
+      <tr><td>College & University Buildings</td><td>52,000</td><td>NCES IPEDS, 2023</td></tr>
+      <tr><td>Hospitals</td><td>6,093</td><td>American Hospital Association, 2023</td></tr>
+      <tr><td>Dental Clinics</td><td>139,000</td><td>American Dental Association, 2023</td></tr>
+      <tr><td>Medical Office Buildings</td><td>20,000</td><td>ULI / Health Care Advisory Board</td></tr>
+      <tr><td>Walk-In/Urgent Clinics</td><td>11,000</td><td>Urgent Care Association, 2024</td></tr>
+      <tr><td>National Parks</td><td>433</td><td>National Park Service, 2024</td></tr>
+      <tr><td>State Park Units</td><td>6,792</td><td>NASPD, 2023</td></tr>
+      <tr><td>Local Parks</td><td>150,000</td><td>NRPA, 2024</td></tr>
+      <tr><td>Public Beaches</td><td>5,525</td><td>EPA, 2023</td></tr>
+      <tr><td>Food & Beverage</td><td>720,800</td><td>US Census / IBISWorld 2024</td></tr>
+      <tr><td>Retail Trade</td><td>1,072,979</td><td>BLS, 2024</td></tr>
+      <tr><td>Public-Facing Services</td><td>11,000,000</td><td>IBISWorld</td></tr>
+      <tr><td>Repair & Maintenance</td><td>148,000</td><td>BLS, 2024</td></tr>
+      <tr><td>Personal & Laundry Services</td><td>155,000</td><td>BLS, 2024</td></tr>
+      <tr><td>Zoos</td><td>420</td><td>BLS, 2024</td></tr>
+      <tr><td>Aquariums</td><td>150</td><td>AZA, 2024</td></tr>
+      <tr><td>Museums</td><td>35,144</td><td>WhichMuseum & ZooChat</td></tr>
+      <tr><td>Indoor Sports Facilities</td><td>9,189</td><td>IMLS, 2023</td></tr>
+      <tr><td>Outdoor Stadiums/Arenas</td><td>2,400</td><td>IBISWorld, 2024</td></tr>
+      <tr><td>Grocery Stores</td><td>77,021</td><td>StadiumDB, 2024</td></tr>
+
+      <tr class="total">
+        <td><strong>Total</strong></td>
+        <td><strong>14,000,946</strong></td>
+        <td>Sum of all segments</td>
+      </tr>
+
+    </tbody>
+  </table>
+</section>
+
+<footer>
+  <p>© 2025 AbleVu – All Rights Reserved</p>
+</footer>
+
+<script src="../script/us_market.js"></script>
+
+</body>
+</html>

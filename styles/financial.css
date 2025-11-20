@@ -1,172 +1,188 @@
- :root{
+/* =========================================================
+   Global Theme – Matches Main Site
+========================================================= */
+:root {
   --primary: #0074d9;
   --secondary: #005fa3;
   --accent: #00b5d8;
   --background: #f9fbfc;
+  --surface: #ffffff;
+  --surface-soft: #eef4f8;
   --text-dark: #1e293b;
+  --text-muted: #52637a;
   --text-light: #ffffff;
-  --shadow: 0 4px 12px rgba(0,0,0,0.1);
+  --shadow: 0 4px 12px rgba(0,0,0,0.08);
+  --radius: 10px;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
 }
-    
-    
-    
-    
-    
-    
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      background: #f8f9fc;
-      color: #1a1a1a;
-    }
 
+/* =========================================================
+   Global Setup
+========================================================= */
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--text-dark);
+  font-family: "Inter", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* =========================================================
+   Header / Navigation
+========================================================= */
 header.finance-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   background: var(--primary);
-  color: #fff;
+  color: var(--text-light);
   padding: 16px 24px;
-  
   margin-bottom: 24px;
+  box-shadow: var(--shadow);
 }
 
 .finance-header h1 {
-  font-size: 20px;
+  font-size: 22px;
   margin: 0;
   font-weight: 600;
 }
 
 .finance-header a {
   text-decoration: none;
-  color: #fff;
-  font-size: 13px;
-  padding: 6px 12px;
-  border-radius: 6px;
-  background: rgba(255,255,255,0.12);
+  color: var(--text-light);
+  font-size: 14px;
+  padding: 7px 13px;
+  border-radius: var(--radius);
+  background: rgba(255,255,255,0.15);
   transition: 0.25s;
 }
 
 .finance-header a:hover {
-  background: rgba(255,255,255,0.22);
+  background: rgba(255,255,255,0.25);
 }
 
+/* =========================================================
+   Page Container
+========================================================= */
+.container {
+  width: 90%;
+  max-width: 1100px;
+  margin: auto;
+  padding: 30px 0;
+}
 
+/* Section Titles */
+h2 {
+  margin-top: 40px;
+  font-size: 24px;
+  color: var(--primary);
+  font-weight: 600;
+}
 
+/* =========================================================
+   Financial Table
+========================================================= */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--surface);
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-top: 20px;
+  box-shadow: var(--shadow);
+}
 
+th, td {
+  padding: 12px;
+  border-bottom: 1px solid #e7e9ec;
+  text-align: center;
+  font-size: 14px;
+}
 
-    .container {
-      width: 90%;
-      max-width: 1100px;
-      margin: auto;
-      padding: 30px 0;
-    }
+th {
+  background: var(--primary);
+  color: var(--text-light);
+  font-weight: 600;
+}
 
-    h2 {
-      margin-top: 40px;
-      font-size: 24px;
-    }
+tbody tr:hover {
+  background: var(--surface-soft);
+}
 
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      background: white;
-      border-radius: 8px;
-      overflow: hidden;
-      margin-top: 20px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-    }
+/* =========================================================
+   Assumptions Blocks
+========================================================= */
+.assumptions {
+  background: var(--surface);
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
 
-    th, td {
-      padding: 12px;
-      border-bottom: 1px solid #eee;
-      text-align: center;
-    }
+.assumptions h3 {
+  margin-bottom: 10px;
+  color: var(--primary);
+  font-weight: 600;
+}
 
-    th {
-      background:var(--primary);
-      color: white;
-    }
+.assumptions ul {
+  margin: 0;
+  padding-left: 20px;
+  color: var(--text-muted);
+}
 
-    tbody tr:hover {
-      background: #f0f6ff;
-    }
+/* Row flash animation */
+.highlight {
+  animation: flash 1.3s ease;
+}
 
-    .assumptions {
-      background: white;
-      padding: 20px;
-      margin-top: 20px;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-    }
+@keyframes flash {
+  0%   { background: #fff6bf; }
+  100% { background: var(--surface); }
+}
 
-    .assumptions h3 {
-      margin-bottom: 10px;
-      color:var(--primary);
-    }
-
-    .assumptions ul {
-      margin: 0;
-      padding-left: 20px;
-    }
-
-    /* Simple animation for dynamic updates */
-    .highlight {
-      animation: flash 1.3s ease;
-    }
-
-    @keyframes flash {
-      0% { background: #fffab6; }
-      100% { background: white; }
-    }
-    footer {
+/* =========================================================
+   Footer
+========================================================= */
+footer {
   text-align: center;
   padding: 2rem;
   background: var(--secondary);
   color: var(--text-light);
   font-size: 0.9rem;
+  margin-top: 40px;
 }
-    /* ============================================
-   Mobile Responsive Layout (Phones < 768px)
-   ============================================ */
+
+/* =========================================================
+   RESPONSIVE – Tablets & Phones
+========================================================= */
 @media (max-width: 768px) {
 
-  header {
-    text-align: center;
-    padding: 15px;
-  }
-
-  header a {
-    position: static;
-    display: block;
-    margin-bottom: 10px;
-  }
-
-  header h1 {
-    font-size: 20px;
-    line-height: 1.2;
-  }
-
+  /* Header becomes stacked */
   header.finance-header {
     flex-direction: column;
-    gap: 8px;
+    gap: 10px;
+    text-align: center;
+    padding: 18px;
   }
 
-  header.finance-header a {
+  .finance-header a {
     width: 100%;
     text-align: center;
   }
 
   .container {
     width: 95%;
-    padding: 10px 0;
+    padding: 15px 0;
   }
 
   h2 {
-    font-size: 18px;
+    font-size: 20px;
+    margin-top: 24px;
   }
 
-  /* Make table scrollable on small screens */
+  /* Table scrolls instead of breaking layout */
   table {
     display: block;
     width: 100%;
@@ -175,11 +191,10 @@ header.finance-header {
   }
 
   th, td {
-    padding: 8px;
+    padding: 9px;
     font-size: 13px;
   }
 
-  /* Assumptions block */
   .assumptions {
     padding: 15px;
     font-size: 14px;
@@ -188,5 +203,4 @@ header.finance-header {
   .assumptions h3 {
     font-size: 16px;
   }
-
 }
