@@ -134,3 +134,118 @@ nav button:hover {
 .files a:hover {
   color: var(--accent);
 }
+
+/* ===========================
+   NEW STYLES ADDED
+=========================== */
+
+/* Document card grid */
+.doc-list {
+  display: grid;
+  gap: 15px;
+}
+
+/* Individual document card */
+.doc-card {
+  display: block;
+  padding: 15px;
+  border-radius: 10px;
+  background: var(--text-light);
+  border: 1px solid #ddd;
+  text-decoration: none;
+  transition: 0.2s;
+  color: var(--text-dark);
+  box-shadow: var(--shadow);
+}
+
+.doc-card:hover {
+  background: #eef6ff;
+  border-color: var(--primary);
+  transform: translateY(-3px);
+}
+
+/* Text section blocks */
+.note-block {
+  margin-bottom: 15px;
+  padding: 15px;
+  border-left: 4px solid var(--primary);
+  background: #eef6ff;
+  border-radius: 6px;
+  color: var(--text-dark);
+}
+
+/* Quick Links Section (replacing upload) */
+.upload .quick-links {
+  display: grid;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.upload .quick-links a {
+  display: block;
+  padding: 12px;
+  border-radius: 8px;
+  background: var(--text-light);
+  border: 1px solid #ddd;
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.2s;
+  box-shadow: var(--shadow);
+}
+
+.upload .quick-links a:hover {
+  background: #eef6ff;
+  border-color: var(--primary);
+  transform: translateY(-2px);
+}
+footer {
+  text-align: center;
+  padding: 2rem;
+  background: var(--secondary);
+  color: var(--text-light);
+  font-size: 0.9rem;
+}
+
+/* ======================================
+   RESPONSIVE GRID & LAYOUT BEHAVIOR
+====================================== */
+
+/* Large screens (default)
+   - doc-list can be 3 columns
+*/
+@media (min-width: 1000px) {
+  .doc-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Tablets (landscape + portrait)
+   - Switch to 2 columns
+*/
+@media (max-width: 999px) and (min-width: 600px) {
+  .doc-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .gallery .images img {
+    width: calc(50% - 10px);
+  }
+}
+
+/* Mobile screens
+   - Single column layout
+*/
+@media (max-width: 599px) {
+  .doc-list {
+    grid-template-columns: 1fr;
+  }
+
+  .container {
+    padding: 15px;
+  }
+
+  .gallery .images img {
+    width: 100%;
+  }
+}
